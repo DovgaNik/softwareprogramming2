@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "users", "users\users.csproj", "{FFFE4CC8-0BD1-49BB-B810-1015ED66E9F4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "immigrationLib", "immigrationLib\immigrationLib.csproj", "{3110387F-404E-4033-A592-DF111590DE8E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FFFE4CC8-0BD1-49BB-B810-1015ED66E9F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FFFE4CC8-0BD1-49BB-B810-1015ED66E9F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FFFE4CC8-0BD1-49BB-B810-1015ED66E9F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FFFE4CC8-0BD1-49BB-B810-1015ED66E9F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3110387F-404E-4033-A592-DF111590DE8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3110387F-404E-4033-A592-DF111590DE8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3110387F-404E-4033-A592-DF111590DE8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3110387F-404E-4033-A592-DF111590DE8E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {11948863-7FE8-432E-AC24-4087B4AAAC95}
+		SolutionGuid = {09CF94B5-247D-4D2E-A9DA-0BDA8232BFD0}
 	EndGlobalSection
 EndGlobal
