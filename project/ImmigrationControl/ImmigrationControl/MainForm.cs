@@ -96,7 +96,16 @@ namespace ImmigrationControl
                 documents.Add(addDocument.tempDoc);
                 reloadListBoxDocuments();
             }
-            
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (listBox2.SelectedIndex != -1)
+            {
+                documents.RemoveAt(listBox2.SelectedIndex);
+                reloadListBoxDocuments();
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace immigrationLib
 {
-    public class GenericDocument
+    public class GenericDocument : IDocuments
     {
         private string name;
         private DateTime dateOfIssue;
@@ -80,6 +80,16 @@
             {
                 pINofPerson = value;
             }
+        }
+
+        public int daysAfterIssuance()
+        {
+            return (int)(DateTime.Now - dateOfIssue).TotalDays;
+        }
+
+        public int daysBeforeExpiry()
+        {
+            return (int)(dateOfExpiration - DateTime.Now).TotalDays;
         }
 
         public override string ToString()
