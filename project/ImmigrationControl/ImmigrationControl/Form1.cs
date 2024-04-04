@@ -5,9 +5,15 @@ namespace ImmigrationControl
         public Form1()
         {
             Login loginForm = new Login();
-            loginForm.ShowDialog();
 
-            InitializeComponent();
+            if (loginForm.ShowDialog() == DialogResult.Cancel)
+            {
+                MessageBox.Show("To use the application you must be logged in!!!");
+                System.Environment.Exit(1);
+            }
+            else
+                InitializeComponent();
+        
         }
 
     }

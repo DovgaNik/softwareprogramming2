@@ -41,8 +41,20 @@ namespace immigrationLib
         }
         public void Register(string username, string password)
         {
-            this.Add(new User(username, User.calculateHash(password)));
-            SaveToJson();
+            bool NotExists = true;
+            foreach (User user in this)
+            {
+                if (user.Username == username)
+                    NotExists = false;
+            }
+            if (NotExists)
+            {
+                this.Add(new User(username, User.calculateHash(password)));
+                SaveToJson();
+            }
+            else
+                throw new Exception("User already exists");
+            
         }
     }
 }

@@ -15,7 +15,12 @@ namespace ImmigrationControl
         {
             try
             {
-                MessageBox.Show(users.Login(textBox1.Text, textBox2.Text).ToString());
+                if(users.Login(textBox1.Text, textBox2.Text))
+                {
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+
             }
             catch (Exception ex)
             {
@@ -25,7 +30,12 @@ namespace ImmigrationControl
 
         private void button2_Click(object sender, EventArgs e)
         {
-            users.Register(textBox1.Text, textBox2.Text);
+            Registration registrationForm = new Registration(users);
+            if (registrationForm.ShowDialog() == DialogResult.OK)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
     }
 }
