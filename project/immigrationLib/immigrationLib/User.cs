@@ -1,75 +1,56 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
+using System.Text.Json.Serialization;
 
-namespace users
+namespace immigrationLib
 {
     public class User
     {
-        public User()
-        {
+        private string username;
+        private string passwordHash;
 
-        }
-        public User(string username) //For existing users
+        public User (string username)
         {
             this.username = username;
-
-            List<string[]> userDB = new List<string[]>();
-
-            StreamReader sr = new StreamReader("users.lst");
-            string line = sr.ReadLine();
-            while (line != null)
-            {
-                userDB.Add(line.Split(" "));
-                Console.WriteLine(line);
-                line = sr.ReadLine();
-            }
-            sr.Close();
-            Console.ReadLine();
         }
 
-        public User(string username, string password) // For new users
+        [JsonConstructor]
+        public User(string username, string passwordHash)
         {
-            using (StreamWriter writer = new StreamWriter("users.lst"))
-            {
-
-                hashPassword = ComputeSha256Hash(password);
-                writer.WriteLine(username + " " + hashPassword);
-
-            }
+            this.username = username;
+            this.passwordHash = passwordHash;
         }
-
-
-        private string username;
-        private string hashPassword;
-
 
         public string Username
         {
             get { return username; }
             set { username = value; }
+
         }
 
-        public string HashPassword
+        public string PasswordHash
         {
-            set { hashPassword = ComputeSha256Hash(value); }
+            get { return passwordHash; }
         }
 
-
-        static string ComputeSha256Hash(string password)
+        public bool verifyPassword (string password)
         {
-            using (SHA256 sha256Hash = SHA256.Create())
+            return passwordHash == calculateHash(password);
+        }
+
+        public static string calculateHash (string text)
+        {
+            byte[] textBytes = Encoding.UTF8.GetBytes(text);
+            using (SHA512 sha = new SHA512Managed())
             {
-                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
-                StringBuilder hash = new StringBuilder();
-                for (int i = 0; i < bytes.Length; i++)
-                    hash.Append(bytes[i].ToString("x2"));
-                return hash.ToString();
+                byte[] hashBytes = sha.ComputeHash(textBytes);
+                return BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
             }
         }
 
-        public bool verifyPassword(string password)
+        public override string ToString()
         {
-            return hashPassword == ComputeSha256Hash(password);
+            return $"User {username}, password hash {passwordHash}";
         }
     }
 }

@@ -1,35 +1,31 @@
-﻿using users;
+﻿using immigrationLib;
 
 namespace ImmigrationControl
 {
     public partial class Login : Form
     {
-        User loggedUser;
-        public Login(User loggedUser)
+        UserList users;
+        public Login()
         {
-            this.loggedUser = loggedUser;
+            users = new UserList("users.json");
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            User tempUser = new User(textBox1.Text);
-            if (tempUser.verifyPassword(textBox2.Text))
+            try
             {
-                loggedUser = tempUser;
-                this.Close();
+                MessageBox.Show(users.Login(textBox1.Text, textBox2.Text).ToString());
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Invalid password");
+                MessageBox.Show(ex.Message);
             }
-
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            loggedUser = new User(textBox1.Text, textBox2.Text);
-            this.Close();
+            users.Register(textBox1.Text, textBox2.Text);
         }
     }
 }

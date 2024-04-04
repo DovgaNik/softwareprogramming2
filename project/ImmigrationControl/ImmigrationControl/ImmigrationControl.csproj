@@ -9,8 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="users">
-      <HintPath>..\..\users\users\bin\Debug\net8.0\users.dll</HintPath>
+    <Reference Include="immigrationLib">
+      <HintPath>..\..\immigrationLib\immigrationLib\bin\Debug\net8.0\immigrationLib.dll</HintPath>
     </Reference>
   </ItemGroup>
 
