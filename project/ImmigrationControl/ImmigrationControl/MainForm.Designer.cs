@@ -1,6 +1,6 @@
 ﻿namespace ImmigrationControl
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -30,12 +30,13 @@
         {
             label1 = new Label();
             listBox1 = new ListBox();
-            button1 = new Button();
+            button_add = new Button();
             textBox1 = new TextBox();
             dateTimePicker1 = new DateTimePicker();
             comboBox1 = new ComboBox();
             comboBox2 = new ComboBox();
             textBox2 = new TextBox();
+            button_remove = new Button();
             SuspendLayout();
             // 
             // label1
@@ -55,15 +56,15 @@
             listBox1.Size = new Size(230, 404);
             listBox1.TabIndex = 1;
             // 
-            // button1
+            // button_add
             // 
-            button1.Location = new Point(248, 32);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 2;
-            button1.Text = "Add";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            button_add.Location = new Point(248, 32);
+            button_add.Name = "button_add";
+            button_add.Size = new Size(94, 29);
+            button_add.TabIndex = 2;
+            button_add.Text = "Add";
+            button_add.UseVisualStyleBackColor = true;
+            button_add.Click += button1_Click;
             // 
             // textBox1
             // 
@@ -103,17 +104,28 @@
             textBox2.Size = new Size(125, 27);
             textBox2.TabIndex = 7;
             // 
+            // button_remove
+            // 
+            button_remove.Location = new Point(348, 32);
+            button_remove.Name = "button_remove";
+            button_remove.Size = new Size(94, 29);
+            button_remove.TabIndex = 8;
+            button_remove.Text = "Remove";
+            button_remove.UseVisualStyleBackColor = true;
+            button_remove.Click += button_remove_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button_remove);
             Controls.Add(textBox2);
             Controls.Add(comboBox2);
             Controls.Add(comboBox1);
             Controls.Add(dateTimePicker1);
             Controls.Add(textBox1);
-            Controls.Add(button1);
+            Controls.Add(button_add);
             Controls.Add(listBox1);
             Controls.Add(label1);
             Name = "Form1";
@@ -126,11 +138,12 @@
 
         private Label label1;
         private ListBox listBox1;
-        private Button button1;
+        private Button button_add;
         private TextBox textBox1;
         private DateTimePicker dateTimePicker1;
         private ComboBox comboBox1;
         private ComboBox comboBox2;
         private TextBox textBox2;
+        private Button button_remove;
     }
 }
