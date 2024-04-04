@@ -37,6 +37,14 @@
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
+            listBox2 = new ListBox();
+            button1 = new Button();
+            button2 = new Button();
+            label7 = new Label();
+            label8 = new Label();
+            label9 = new Label();
+            label10 = new Label();
+            label11 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -61,7 +69,7 @@
             // 
             button_add.Location = new Point(12, 344);
             button_add.Name = "button_add";
-            button_add.Size = new Size(45, 29);
+            button_add.Size = new Size(132, 29);
             button_add.TabIndex = 2;
             button_add.Text = "Add";
             button_add.UseVisualStyleBackColor = true;
@@ -69,9 +77,9 @@
             // 
             // button_remove
             // 
-            button_remove.Location = new Point(152, 344);
+            button_remove.Location = new Point(150, 344);
             button_remove.Name = "button_remove";
-            button_remove.Size = new Size(72, 29);
+            button_remove.Size = new Size(74, 29);
             button_remove.TabIndex = 8;
             button_remove.Text = "Remove";
             button_remove.UseVisualStyleBackColor = true;
@@ -122,11 +130,91 @@
             label6.TabIndex = 13;
             label6.Text = "PIN:";
             // 
+            // listBox2
+            // 
+            listBox2.FormattingEnabled = true;
+            listBox2.Location = new Point(539, 32);
+            listBox2.Name = "listBox2";
+            listBox2.Size = new Size(212, 304);
+            listBox2.TabIndex = 14;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(677, 344);
+            button1.Name = "button1";
+            button1.Size = new Size(74, 29);
+            button1.TabIndex = 16;
+            button1.Text = "Remove";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(539, 344);
+            button2.Name = "button2";
+            button2.Size = new Size(132, 29);
+            button2.TabIndex = 15;
+            button2.Text = "Add";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(757, 112);
+            label7.Name = "label7";
+            label7.Size = new Size(13, 20);
+            label7.TabIndex = 21;
+            label7.Text = " ";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(757, 92);
+            label8.Name = "label8";
+            label8.Size = new Size(13, 20);
+            label8.TabIndex = 20;
+            label8.Text = " ";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(757, 72);
+            label9.Name = "label9";
+            label9.Size = new Size(13, 20);
+            label9.TabIndex = 19;
+            label9.Text = " ";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(757, 52);
+            label10.Name = "label10";
+            label10.Size = new Size(13, 20);
+            label10.TabIndex = 18;
+            label10.Text = " ";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(757, 32);
+            label11.Name = "label11";
+            label11.Size = new Size(13, 20);
+            label11.TabIndex = 17;
+            label11.Text = " ";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 485);
+            ClientSize = new Size(974, 387);
+            Controls.Add(label7);
+            Controls.Add(label8);
+            Controls.Add(label9);
+            Controls.Add(label10);
+            Controls.Add(label11);
+            Controls.Add(button1);
+            Controls.Add(button2);
+            Controls.Add(listBox2);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -153,5 +241,13 @@
         private Label label4;
         private Label label5;
         private Label label6;
+        private ListBox listBox2;
+        private Button button1;
+        private Button button2;
+        private Label label7;
+        private Label label8;
+        private Label label9;
+        private Label label10;
+        private Label label11;
     }
 }

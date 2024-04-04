@@ -1,9 +1,11 @@
 using immigrationLib;
+using System.Linq.Expressions;
 namespace ImmigrationControl
 {
     public partial class MainForm : Form
     {
         ImmigrantList immigrants;
+        DocumentList documents;
         public MainForm()
         {
             //Login loginForm = new Login();
@@ -17,7 +19,9 @@ namespace ImmigrationControl
             //{
             InitializeComponent();
             immigrants = new ImmigrantList("immigrants.json");
+            documents = new DocumentList("documents.json");
             reloadListBoxImmigrants();
+            reloadListBoxDocuments();
             //}
         }
 
@@ -26,6 +30,14 @@ namespace ImmigrationControl
             listBox1.Items.Clear();
             foreach (Immigrant immigrant in immigrants)
                 listBox1.Items.Add(immigrant.Name);
+        }
+
+        private void reloadListBoxDocuments()
+        {
+            listBox2.Items.Clear();
+            foreach (GenericDocument document in documents)
+                if (document != null)
+                    listBox2.Items.Add((document.Name + " of " + document.PINofPerson));
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -43,14 +55,15 @@ namespace ImmigrationControl
             if (listBox1.SelectedIndex == -1)
                 MessageBox.Show("Please select the item to delete");
             else
-            { 
+            {
                 immigrants.RemoveAt(listBox1.SelectedIndex);
                 reloadListBoxImmigrants();
                 infoClear();
             }
         }
 
-        private void infoClear() {
+        private void infoClear()
+        {
 
             label2.Text = "Name: ";
             label3.Text = "DOB: ";
@@ -70,6 +83,20 @@ namespace ImmigrationControl
                 label5.Text = "Citizenship: " + Countries.countries[immigrants[listBox1.SelectedIndex].Citizenship];
                 label6.Text = "PIN: " + immigrants[listBox1.SelectedIndex].PIN;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            List<string> PINs = new List<string>();
+            foreach (Immigrant immigrant in immigrants)
+                PINs.Add(immigrant.PIN);
+            AddDocument addDocument = new AddDocument(PINs);
+            if (addDocument.ShowDialog() == DialogResult.OK)
+            {
+                documents.Add(addDocument.tempDoc);
+                reloadListBoxDocuments();
+            }
+            
         }
     }
 }

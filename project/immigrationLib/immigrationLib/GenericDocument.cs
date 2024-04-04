@@ -4,16 +4,16 @@
     {
         private string name;
         private DateTime dateOfIssue;
-        private string issuingAuthority;
+        private int issuingAuthority;
         private string pINofPerson;
         private DateTime dateOfExpiration;
 
-        public GenericDocument(string name, DateTime dateOfIssue, string issuingAuthority, string PINofPerson, DateTime dateOfExpiration)
+        public GenericDocument(string name, DateTime dateOfIssue, int issuingAuthority, string PINofPerson, DateTime dateOfExpiration)
         {
             Name = name;
             DateOfIssue = dateOfIssue;
             IssuingAuthority = issuingAuthority;
-            PINofPerson = PINofPerson;
+            this.PINofPerson = PINofPerson;
             this.dateOfExpiration = dateOfExpiration;
         }
         public string Name
@@ -58,7 +58,7 @@
             }
         }
 
-        public string IssuingAuthority
+        public int IssuingAuthority
         {
             get
             {

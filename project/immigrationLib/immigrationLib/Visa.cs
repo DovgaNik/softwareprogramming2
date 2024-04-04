@@ -1,11 +1,11 @@
 ﻿namespace immigrationLib
 {
-    internal class Visa : GenericDocument
+    public class Visa : GenericDocument
     {
         private int daysAllowed;
         private int daysUsed;
 
-        public Visa(string name, DateTime dateOfIssue, string issuingAuthority, string PINofPerson, int daysAllowed, int daysUsed, DateTime dateOfExpiration) : base(name, dateOfIssue, issuingAuthority, PINofPerson, dateOfExpiration)
+        public Visa(string name, DateTime dateOfIssue, int issuingAuthority, string PINofPerson, int daysAllowed, int daysUsed, DateTime dateOfExpiration) : base(name, dateOfIssue, issuingAuthority, PINofPerson, dateOfExpiration)
         {
             DaysUsed = daysUsed;
             DaysAllowed = daysAllowed;

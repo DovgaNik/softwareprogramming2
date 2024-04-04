@@ -4,7 +4,7 @@
     {
         private string type;
 
-        public ResidencyPermit (string name, DateTime dateOfIssue, string issuingAuthority, string PINofPerson, DateTime dateOfExpiration, string type) : base(name, dateOfIssue, issuingAuthority, PINofPerson, dateOfExpiration)
+        public ResidencyPermit (string name, DateTime dateOfIssue, int issuingAuthority, string PINofPerson, DateTime dateOfExpiration, string type) : base(name, dateOfIssue, issuingAuthority, PINofPerson, dateOfExpiration)
         {
             Type = type;
         }

@@ -1,10 +1,10 @@
 ﻿namespace immigrationLib
 {
-    internal class Passport : GenericDocument
+    public class Passport : GenericDocument
     {
         private string passportNumber;
 
-        public Passport(string name, DateTime dateOfIssue, string issuingAuthority, string PINofPerson, string passportNumber) : base(name, dateOfIssue, issuingAuthority, PINofPerson)
+        public Passport(string name, DateTime dateOfIssue, int issuingAuthority, string PINofPerson, string passportNumber, DateTime dateOfExpiry) : base(name, dateOfIssue, issuingAuthority, PINofPerson, dateOfExpiry)
         {
             PassportNumber = passportNumber;
         }
