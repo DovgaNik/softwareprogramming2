@@ -19,12 +19,19 @@ namespace immigrationLib
 
         private void Load()
         {
-            string json = File.ReadAllText(filepath);
-            List<User> userList = JsonSerializer.Deserialize<List<User>>(json);
-            foreach (User user in userList)
+            try
             {
-                this.Add(user);
+                string json = File.ReadAllText(filepath);
+                List<User> userList = JsonSerializer.Deserialize<List<User>>(json);
+                foreach (User user in userList)
+                {
+                    this.Add(user);
+                }
+            } catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading file: {ex.Message}");
             }
+            
         }
 
         public bool Login(string username, string password)
