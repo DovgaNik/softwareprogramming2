@@ -6,18 +6,19 @@ namespace ImmigrationControl
         ImmigrantList immigrants;
         public MainForm()
         {
-            //Login loginForm = new Login();
+            Login loginForm = new Login();
 
-            //if (loginForm.ShowDialog() == DialogResult.Cancel)
-            //{
-            //    MessageBox.Show("To use the application you must be logged in!!!");
-            //    System.Environment.Exit(1);
-            //}
-            //else
-            InitializeComponent();
-            immigrants = new ImmigrantList("immigrants.json");
-            reloadListBoxImmigrants();
-
+            if (loginForm.ShowDialog() == DialogResult.Cancel)
+            {
+                MessageBox.Show("To use the application you must be logged in!!!");
+                System.Environment.Exit(1);
+            }
+            else
+            {
+                InitializeComponent();
+                immigrants = new ImmigrantList("immigrants.json");
+                reloadListBoxImmigrants();
+            }
         }
 
         private void reloadListBoxImmigrants()
