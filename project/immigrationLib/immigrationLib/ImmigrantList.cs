@@ -35,5 +35,16 @@ namespace immigrationLib
 
         }
 
+        public void Add(Immigrant immigrant)
+        {
+            base.Add(immigrant);
+            SaveToJson();
+        }
+
+        public void RemoveAt (int index)
+        {
+            base.RemoveAt(index);
+            SaveToJson();
+        }
     }
 }
