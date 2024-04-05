@@ -14,7 +14,7 @@ namespace immigrationLib
 
         private void SaveToJson()
         {
-            File.WriteAllText(filepath, JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true }));
+            File.WriteAllText(filepath, JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true}));
         }
 
         private void Load()

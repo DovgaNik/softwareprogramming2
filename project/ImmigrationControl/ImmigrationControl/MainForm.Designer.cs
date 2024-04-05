@@ -45,6 +45,8 @@
             label9 = new Label();
             label10 = new Label();
             label11 = new Label();
+            label12 = new Label();
+            label13 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -137,6 +139,7 @@
             listBox2.Name = "listBox2";
             listBox2.Size = new Size(212, 304);
             listBox2.TabIndex = 14;
+            listBox2.SelectedIndexChanged += listBox2_SelectedIndexChanged;
             // 
             // button1
             // 
@@ -203,11 +206,31 @@
             label11.TabIndex = 17;
             label11.Text = " ";
             // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(757, 132);
+            label12.Name = "label12";
+            label12.Size = new Size(13, 20);
+            label12.TabIndex = 22;
+            label12.Text = " ";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(757, 316);
+            label13.Name = "label13";
+            label13.Size = new Size(13, 20);
+            label13.TabIndex = 23;
+            label13.Text = " ";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(974, 387);
+            Controls.Add(label13);
+            Controls.Add(label12);
             Controls.Add(label7);
             Controls.Add(label8);
             Controls.Add(label9);
@@ -250,5 +273,7 @@
         private Label label9;
         private Label label10;
         private Label label11;
+        private Label label12;
+        private Label label13;
     }
 }

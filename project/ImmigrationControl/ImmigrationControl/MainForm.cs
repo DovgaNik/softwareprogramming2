@@ -8,21 +8,21 @@ namespace ImmigrationControl
         DocumentList documents;
         public MainForm()
         {
-            //Login loginForm = new Login();
+            Login loginForm = new Login();
 
-            //if (loginForm.ShowDialog() == DialogResult.Cancel)
-            //{
-            //    MessageBox.Show("To use the application you must be logged in!!!");
-            //    System.Environment.Exit(1);
-            //}
-            //else
-            //{
-            InitializeComponent();
+            if (loginForm.ShowDialog() == DialogResult.Cancel)
+            {
+                MessageBox.Show("To use the application you must be logged in!!!");
+                System.Environment.Exit(1);
+            }
+            else
+            {
+                InitializeComponent();
             immigrants = new ImmigrantList("immigrants.json");
             documents = new DocumentList("documents.json");
             reloadListBoxImmigrants();
             reloadListBoxDocuments();
-            //}
+            }
         }
 
         private void reloadListBoxImmigrants()
@@ -105,6 +105,56 @@ namespace ImmigrationControl
             {
                 documents.RemoveAt(listBox2.SelectedIndex);
                 reloadListBoxDocuments();
+            }
+        }
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBox2.SelectedIndex != -1)
+            {
+                if (documents[listBox2.SelectedIndex].GetType() == typeof(Passport))
+                {
+                    Passport passport = (Passport)documents[listBox2.SelectedIndex];
+                    label7.Text = "Type: Passport";
+                    label8.Text = "Number: " + passport.PassportNumber;
+                    label9.Text = "Issue Date: " + passport.DateOfIssue.ToString("dd/MM/yyyy");
+                    label10.Text = "Country: " + Countries.countries[passport.IssuingAuthority];
+                    label11.Text = "PIN: " + passport.PINofPerson;
+                    label12.Text = "Expiry Date: " + passport.DateOfExpiration.ToString("dd/MM/yyyy");
+                    return;
+                }
+                else if (documents[listBox2.SelectedIndex].GetType() == typeof(Visa))
+                {
+                    Visa visa = (Visa)documents[listBox2.SelectedIndex];
+                    label7.Text = "Type: Visa";
+                    label9.Text = "Issue Date: " + visa.DateOfIssue.ToString("dd/MM/yyyy");
+                    label10.Text = "Country: " + Countries.countries[visa.IssuingAuthority];
+                    label11.Text = "PIN: " + visa.PINofPerson;
+                    label12.Text = "Expiry Date: " + visa.DateOfExpiration.ToString("dd/MM/yyyy");
+                    label8.Text = "Days remaining: " + visa.daysRemaining;
+                    return;
+                }
+
+                else if (documents[listBox2.SelectedIndex].GetType() == typeof(ResidencyPermit))
+                {
+                    ResidencyPermit residencyPermit = (ResidencyPermit)documents[listBox2.SelectedIndex];
+                    label7.Text = "Type: Residency Permit";
+                    label9.Text = "Issue Date: " + residencyPermit.DateOfIssue.ToString("dd/MM/yyyy");
+                    label10.Text = "Country: " + Countries.countries[residencyPermit.IssuingAuthority];
+                    label11.Text = "PIN: " + residencyPermit.PINofPerson;
+                    label12.Text = "Expiry Date: " + residencyPermit.DateOfExpiration.ToString("dd/MM/yyyy");
+                    return;
+                }
+                else
+                {
+                    GenericDocument doc = documents[listBox2.SelectedIndex];
+                    label8.Text = "Number: " + doc.Name;
+                    label9.Text = "Issue Date: " + doc.DateOfIssue.ToString("dd/MM/yyyy");
+                    label10.Text = "Country: " + Countries.countries[doc.IssuingAuthority];
+                    label11.Text = "PIN: " + doc.PINofPerson;
+                    label7.Text = "Expiry Date: " + doc.DateOfExpiration.ToString("dd/MM/yyyy");
+                    label13.Text = $"{(doc.daysBeforeExpiry() < 0 ? "Expired" : "Not expired")}";
+                }
             }
         }
     }

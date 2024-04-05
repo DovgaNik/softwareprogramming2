@@ -51,10 +51,10 @@
             }
             set
             {
-                if (value.Date >= DateTime.Now.Date)
+                //if (value.Date >= DateTime.Now.Date)
                     dateOfExpiration = value;
-                else
-                    throw new Exception("Date of expiration cannot be in the past");
+                //else
+                //    throw new Exception("Date of expiration cannot be in the past");
             }
         }
 
